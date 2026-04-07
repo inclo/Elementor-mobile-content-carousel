@@ -122,3 +122,7 @@
     display: none;
   }
 }
+
+.emc-mobile-carousel--nested .emc-nested-slide-content {
+  height: 100%;
+}

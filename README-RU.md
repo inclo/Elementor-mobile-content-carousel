@@ -6,7 +6,9 @@
 
 ## Возможности
 
-- Кастомный виджет Elementor: **Mobile Carousel**.
+- Два виджета Elementor:
+  - **Mobile Carousel** (карточки через Repeater)
+  - **Mobile Carousel (Nested Templates)** для слайдов из сохранённых шаблонов Elementor (вложенные структуры).
 - Отдельная категория Elementor: **EMC Widgets**.
 - Управление мобильной каруселью:
   - автопрокрутка (autoplay) и задержка
@@ -48,8 +50,12 @@
 
 1. Откройте страницу в Elementor.
 2. Найдите категорию виджетов **EMC Widgets**.
-3. Перетащите виджет **Mobile Carousel** на страницу.
-4. Добавьте/измените карточки в блоке **Slides**.
+3. Перетащите на страницу один из виджетов:
+   - **Mobile Carousel** для обычных карточек
+   - **Mobile Carousel (Nested Templates)** для слайдов на базе шаблонов Elementor
+4. Настройте наполнение слайдов:
+   - Обычный виджет: добавьте/измените карточки в **Slides**
+   - Nested-виджет: создайте шаблоны в **Templates → Saved Templates** и выберите шаблон для каждого слайда
 5. Настройте поведение в блоке **Settings**:
    - Mobile max width
    - Slides per view
@@ -81,7 +87,8 @@
 │   ├── widget.css
 │   └── widget.js
 └── widgets/
-    └── class-emc-mobile-carousel-widget.php
+    ├── class-emc-mobile-carousel-widget.php
+    └── class-emc-mobile-carousel-nested-widget.php
 ```
 
 ## Примечания
@@ -92,4 +99,4 @@
 
 ## Версия
 
-Текущая версия плагина: **1.0.0**.
+Текущая версия плагина: **1.1.0**.

@@ -6,7 +6,9 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
 
 ## Features
 
-- Custom Elementor widget: **Mobile Carousel**.
+- Two Elementor widgets:
+  - **Mobile Carousel** (card repeater)
+  - **Mobile Carousel (Nested Templates)** for slides built from saved Elementor templates (nested structures).
 - Separate Elementor category: **EMC Widgets**.
 - Mobile carousel controls:
   - autoplay + delay
@@ -48,8 +50,12 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
 
 1. Open a page with Elementor.
 2. Find widget category **EMC Widgets**.
-3. Drag **Mobile Carousel** onto the page.
-4. Add/edit slides in the **Slides** repeater.
+3. Drag one of the widgets onto the page:
+   - **Mobile Carousel** for standard cards
+   - **Mobile Carousel (Nested Templates)** for template-based nested slides
+4. Configure slide content:
+   - Standard widget: add/edit cards in the **Slides** repeater
+   - Nested widget: create templates in **Templates → Saved Templates** and assign one template per slide
 5. Configure behavior in **Settings**:
    - Mobile max width
    - Slides per view
@@ -81,7 +87,8 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
 │   ├── widget.css
 │   └── widget.js
 └── widgets/
-    └── class-emc-mobile-carousel-widget.php
+    ├── class-emc-mobile-carousel-widget.php
+    └── class-emc-mobile-carousel-nested-widget.php
 ```
 
 ## Notes
@@ -92,4 +99,4 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
 
 ## Version
 
-Current plugin version: **1.0.0**.
+Current plugin version: **1.1.0**.

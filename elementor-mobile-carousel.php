@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Elementor Mobile Carousel Widget
  * Description: Custom Elementor widget with mobile-only carousel features: autoplay, arrows, pagination, and loop.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Perplexity
  * Requires Plugins: elementor
  */
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class EMC_Elementor_Mobile_Carousel_Plugin {
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.0';
 
     public function __construct() {
         add_action( 'plugins_loaded', [ $this, 'init' ] );
@@ -80,7 +80,10 @@ final class EMC_Elementor_Mobile_Carousel_Plugin {
 
     public function register_widgets( $widgets_manager ) {
         require_once __DIR__ . '/widgets/class-emc-mobile-carousel-widget.php';
+        require_once __DIR__ . '/widgets/class-emc-mobile-carousel-nested-widget.php';
+
         $widgets_manager->register( new \EMC_Mobile_Carousel_Widget() );
+        $widgets_manager->register( new \EMC_Mobile_Carousel_Nested_Widget() );
     }
 }
 

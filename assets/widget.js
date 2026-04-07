@@ -56,6 +56,7 @@
   $(window).on('elementor/frontend/init', function() {
     if (window.elementorFrontend && window.elementorFrontend.hooks) {
       elementorFrontend.hooks.addAction('frontend/element_ready/emc_mobile_carousel.default', initMobileCarousel);
+      elementorFrontend.hooks.addAction('frontend/element_ready/emc_mobile_carousel_nested.default', initMobileCarousel);
     }
   });
 

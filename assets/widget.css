@@ -12,6 +12,11 @@
   height: auto;
 }
 
+/* Nested variant: slides contain Elementor containers (e-con). */
+.emc-mobile-carousel--nested .swiper-slide > .e-con {
+  width: 100%;
+}
+
 .emc-mobile-carousel .emc-card {
   height: 100%;
   padding: 24px;

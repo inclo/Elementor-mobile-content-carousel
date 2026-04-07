@@ -81,6 +81,13 @@ final class EMC_Elementor_Mobile_Carousel_Plugin {
     public function register_widgets( $widgets_manager ) {
         require_once __DIR__ . '/widgets/class-emc-mobile-carousel-widget.php';
         $widgets_manager->register( new \EMC_Mobile_Carousel_Widget() );
+
+        // Optional: Nested variant (Elementor "Nested Elements" experiment).
+        // The widget file self-guards if required core classes are missing.
+        require_once __DIR__ . '/widgets/class-emc-mobile-carousel-nested-widget.php';
+        if ( class_exists( '\\EMC_Mobile_Carousel_Nested_Widget' ) ) {
+            $widgets_manager->register( new \EMC_Mobile_Carousel_Nested_Widget() );
+        }
     }
 }
 

@@ -311,9 +311,22 @@ class EMC_Mobile_Carousel_Nested_Widget extends \Elementor\Modules\NestedElement
                 swiperKey = 'emc-swiper-' + elementUid,
                 swiperInsideKey = 'emc-swiper-inside-' + elementUid;
 
+            const config = {
+                breakpoint: parseInt( settings.mobile_breakpoint || 767, 10 ),
+                slidesPerView: parseFloat( settings.slides_per_view || 1.15 ),
+                spaceBetween: parseInt( settings.space_between || 12, 10 ),
+                autoplay: 'yes' === settings.autoplay,
+                autoplayDelay: parseInt( settings.autoplay_delay || 2500, 10 ),
+                showArrows: 'yes' === settings.show_arrows,
+                showPagination: 'yes' === settings.show_pagination,
+                loop: 'yes' === settings.loop,
+                pauseOnHover: 'yes' === settings.pause_on_hover,
+            };
+
             view.addRenderAttribute( wrapperKey, {
                 'class': 'emc-mobile-carousel emc-mobile-carousel--nested',
-                'data-emc-config': JSON.stringify({})
+                'aria-label': settings.carousel_name || 'Carousel',
+                'data-emc-config': JSON.stringify( config )
             } );
 
             view.addRenderAttribute( swiperKey, {

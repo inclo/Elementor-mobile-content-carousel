@@ -1,62 +1,50 @@
 # Elementor Mobile Carousel Widget
+Лёгкий плагин для WordPress, который добавляет кастомный виджет Elementor для **мобильной карусели карточек**.
+На мобильных устройствах карточки отображаются как Swiper-карусель, а на широких экранах — как обычная многоколоночная сетка.
 
-A lightweight WordPress plugin that adds a custom Elementor widget for **mobile-first content carousels**.
+## Возможности
+- Кастомный виджет Elementor: **Mobile Carousel**.
+- Отдельная категория Elementor: **EMC Widgets**.
+- Управление мобильной каруселью:
+  - автопрокрутка (autoplay) и задержка
+  - стрелки
+  - пагинация (bullets)
+  - зацикливание (loop)
+  - пауза при наведении
+- Гибкие параметры отображения:
+  - мобильный брейкпоинт
+  - количество слайдов в зоне видимости
+  - расстояние между слайдами
+- Контент через Repeater:
+  - заголовок
+  - текст
+  - текст кнопки и ссылка
+- Стили в Elementor:
+  - фон карточки
+  - цвет заголовка
+  - цвет текста
+  - типографика заголовка и текста
+- Корректное поведение на десктопе: выше брейкпоинта карточки отображаются сеткой.
 
-The widget renders cards as a Swiper carousel on mobile devices and falls back to a simple multi-column grid on larger screens.
-
-## Features
-
-- Two Elementor widgets:
-  - **Mobile Carousel** (card repeater)
-  - **Mobile Carousel (Nested Templates)** for slides built from saved Elementor templates (nested structures).
-- Separate Elementor category: **EMC Widgets**.
-- Mobile carousel controls:
-  - autoplay + delay
-  - arrows
-  - pagination bullets
-  - loop mode
-  - pause on hover
-- Adjustable layout settings:
-  - mobile breakpoint
-  - slides per view
-  - spacing between slides
-- Repeater-based card content:
-  - title
-  - text
-  - button text + link
-- Style controls in Elementor:
-  - card background
-  - title color
-  - text color
-  - typography for title and text
-- Graceful desktop behavior: cards are displayed as a grid when viewport is above mobile breakpoint.
-
-## Requirements
-
+## Требования
 - WordPress
-- Elementor (required plugin dependency)
-- PHP compatible with your WordPress/Elementor setup
+- Elementor (обязательная зависимость)
+- PHP-версия, совместимая с вашим WordPress/Elementor
 
-> If Elementor is not active, the plugin shows an admin warning and does not register the widget.
+> Если Elementor не активирован, плагин покажет предупреждение в админке и не зарегистрирует виджет.
 
-## Installation
-
-1. Place the plugin folder in your WordPress plugins directory:
+## Установка
+1. Скопируйте папку плагина в каталог плагинов WordPress:
    - `wp-content/plugins/elementor-mobile-content-carousel`
-2. Activate the plugin in **WordPress Admin → Plugins**.
-3. Ensure Elementor is installed and active.
+2. Активируйте плагин в **WordPress Admin → Plugins**.
+3. Убедитесь, что Elementor установлен и активирован.
 
-## Usage
-
-1. Open a page with Elementor.
-2. Find widget category **EMC Widgets**.
-3. Drag one of the widgets onto the page:
-   - **Mobile Carousel** for standard cards
-   - **Mobile Carousel (Nested Templates)** for template-based nested slides
-4. Configure slide content:
-   - Standard widget: add/edit cards in the **Slides** repeater
-   - Nested widget: create templates in **Templates → Saved Templates** and assign one template per slide
-5. Configure behavior in **Settings**:
+## Использование
+1. Откройте страницу в Elementor.
+2. Найдите категорию виджетов **EMC Widgets**.
+3. Перетащите виджет **Mobile Carousel** на страницу.
+4. Добавьте/измените карточки в блоке **Slides**.
+5. Настройте поведение в блоке **Settings**:
    - Mobile max width
    - Slides per view
    - Space between
@@ -65,21 +53,19 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
    - Pagination
    - Loop
    - Pause on hover
-6. Adjust card appearance in the **Card** style section.
+6. Оформите карточки в стилевом блоке **Card**.
 
-## How it works
+## Как это работает
+- Основной файл плагина:
+  - проверяет, загружен ли Elementor
+  - регистрирует скрипты и стили
+  - регистрирует категорию и класс виджета в Elementor
+- Фронтенд-часть:
+  - Swiper 11 подключается из jsDelivr CDN
+  - кастомный JS инициализирует Swiper только в мобильном диапазоне
+  - кастомный CSS отвечает за карточки, стрелки, пагинацию и fallback-сетку на десктопе
 
-- Plugin bootstrap file:
-  - checks Elementor availability
-  - registers scripts/styles
-  - registers custom Elementor category and widget class
-- Frontend stack:
-  - Swiper 11 loaded from jsDelivr CDN
-  - custom JS initializes Swiper only on mobile breakpoint
-  - custom CSS styles card UI, nav, bullets, and desktop fallback grid
-
-## Project structure
-
+## Структура проекта
 ```text
 .
 ├── elementor-mobile-carousel.php
@@ -87,16 +73,10 @@ The widget renders cards as a Swiper carousel on mobile devices and falls back t
 │   ├── widget.css
 │   └── widget.js
 └── widgets/
-    ├── class-emc-mobile-carousel-widget.php
-    └── class-emc-mobile-carousel-nested-widget.php
+    └── class-emc-mobile-carousel-widget.php
 ```
 
-## Notes
-
-- Widget assets are registered through `wp_enqueue_scripts` and loaded via Elementor dependency methods (`get_style_depends`, `get_script_depends`).
-- Slides content is escaped (`esc_html`, `esc_url`) during rendering.
-- External button links use `target="_blank"` with `rel="noopener noreferrer"`.
-
-## Version
-
-Current plugin version: **1.1.0**.
+## Примечания
+- Ассеты виджета регистрируются через `wp_enqueue_scripts` и подключаются через зависимости Elementor (`get_style_depends`, `get_script_depends`).
+- Данные слайдов экранируются при рендере (`esc_html`, `esc_url`).
+- Для внешних ссылок кнопки используется `target="_blank"` и `rel="noopener noreferrer"`.
